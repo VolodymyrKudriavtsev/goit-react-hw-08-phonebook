@@ -34,9 +34,9 @@ const ContactList = () => {
   return (
     <>
       {isContacts && (
-        <Contacts>
+        <div>
           <ul>{elements}</ul>
-        </Contacts>
+        </div>
       )}
     </>
   );

@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchAddContact } from 'redux/contacts/operations';
 import { selectContacts } from 'redux/contacts/slice';
 
-import { Form } from './ContactForm.styled';
+// import { Form } from './ContactForm.styled';
 
 const ContactForm = () => {
   const contacts = useSelector(selectContacts);
@@ -25,7 +25,7 @@ const ContactForm = () => {
   };
 
   return (
-    <Form onSubmit={handleAddContact}>
+    <form onSubmit={handleAddContact}>
       <label>
         Name
         <input
@@ -47,7 +47,7 @@ const ContactForm = () => {
         />
       </label>
       <button type="submit">Add contact</button>
-    </Form>
+    </form>
   );
 };
 
