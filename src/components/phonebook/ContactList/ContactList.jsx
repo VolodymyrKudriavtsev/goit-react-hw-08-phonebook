@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 
-import ContactItem from 'components/ContactItem';
+import ContactItem from 'components/phonebook/ContactItem';
 
 import {
   fetchAllContacts,
@@ -9,7 +9,7 @@ import {
 } from 'redux/contacts/operations';
 import { selectFilteredContacts } from 'redux/contacts/slice';
 
-import { Contacts } from './ContactList.styled';
+// import { Contacts } from './ContactList.styled';
 
 const ContactList = () => {
   const dispatch = useDispatch();
