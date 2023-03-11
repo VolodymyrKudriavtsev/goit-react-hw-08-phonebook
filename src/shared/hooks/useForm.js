@@ -3,7 +3,7 @@ import { useState } from 'react';
 const useForm = ({ initialState, onSubmit }) => {
   const [state, setState] = useState({ ...initialState });
 
-  const handleChandge = ({ target }) => {
+  const handleChange = ({ target }) => {
     setState(prevState => {
       const { name, value } = target;
       return { ...prevState, [name]: value };
@@ -16,7 +16,7 @@ const useForm = ({ initialState, onSubmit }) => {
     setState({ initialState });
   };
 
-  return { state, setState, handleChandge, handleSubmit };
+  return { state, setState, handleChange, handleSubmit };
 };
 
 export default useForm;

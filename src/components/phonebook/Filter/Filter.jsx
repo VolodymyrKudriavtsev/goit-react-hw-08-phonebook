@@ -1,5 +1,8 @@
 import { useSelector, useDispatch } from 'react-redux';
 
+import TextField from 'shared/components/TextField';
+
+import fields from './fields';
 import { selectFilter, setFilter } from 'redux/filter/slice';
 
 // import { Filtration } from './Filter.styled';
@@ -15,15 +18,7 @@ const Filter = () => {
 
   return (
     <div>
-      <label>
-        Find contacts by name
-        <input
-          value={filter}
-          onChange={handleFilter}
-          type="text"
-          name="filter"
-        />
-      </label>
+      <TextField handleChange={handleFilter} {...fields.filter} />
     </div>
   );
 };

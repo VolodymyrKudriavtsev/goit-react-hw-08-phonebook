@@ -1,5 +1,12 @@
 import { useSelector, useDispatch } from 'react-redux';
 
+import TextField from 'shared/components/TextField';
+import Button from 'shared/components/Button';
+import { ReactComponent as PlusIcon } from '../../../icons/plus.svg';
+import { ReactComponent as SpinnerIcon } from '../../../icons/spinner.svg';
+
+//! import useForm from 'shared/hooks/useForm';
+import fields from './fields';
 import { fetchAddContact } from 'redux/contacts/operations';
 import { selectContacts } from 'redux/contacts/slice';
 
@@ -26,6 +33,14 @@ const ContactForm = () => {
 
   return (
     <form onSubmit={handleAddContact}>
+      <TextField {...fields.name} />
+      <TextField {...fields.phone} />
+      <Button>
+        <PlusIcon width="20" height="20" />
+        <SpinnerIcon width="20" height="20" />
+        Add contact
+      </Button>
+      {/* <br />
       <label>
         Name
         <input
@@ -46,7 +61,7 @@ const ContactForm = () => {
           required
         />
       </label>
-      <button type="submit">Add contact</button>
+      <button type="submit">Add contact</button> */}
     </form>
   );
 };

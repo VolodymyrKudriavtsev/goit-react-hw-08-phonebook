@@ -1,8 +1,12 @@
+import Button from 'shared/components/Button';
+import { ReactComponent as Avatar } from '../../../icons/user.svg';
+
 const UserMenu = () => {
   return (
     <div>
+      <Avatar />
       <p>mango@mail.com</p>
-      <button type="button">Logout</button>
+      <Button type="button">Log out</Button>
     </div>
   );
 };

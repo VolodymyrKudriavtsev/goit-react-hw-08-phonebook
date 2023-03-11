@@ -64,3 +64,5 @@ export const selectFilteredContacts = ({ contacts, filter }) => {
     name.toLowerCase().includes(filter.toLowerCase())
   );
 };
+
+export const selectIsLoading = ({ isLoading }) => isLoading;
