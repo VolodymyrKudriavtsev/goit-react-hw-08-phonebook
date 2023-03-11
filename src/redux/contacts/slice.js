@@ -33,7 +33,7 @@ const contactsSlice = createSlice({
       })
       .addCase(fetchAddContact.fulfilled, (store, { payload }) => {
         store.isLoading = false;
-        store.items.push(payload);
+        store.items.unshift(payload);
       })
       .addCase(fetchAddContact.rejected, (store, { payload }) => {
         store.isLoading = false;
@@ -65,4 +65,4 @@ export const selectFilteredContacts = ({ contacts, filter }) => {
   );
 };
 
-export const selectIsLoading = ({ isLoading }) => isLoading;
+export const selectIsLoading = ({ contacts }) => contacts.isLoading;
