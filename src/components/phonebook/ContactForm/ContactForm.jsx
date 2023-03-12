@@ -21,14 +21,14 @@ const ContactForm = () => {
   const handleAddContact = e => {
     e.preventDefault();
     const name = e.target.elements.name.value;
-    const phone = e.target.elements.phone.value;
+    const number = e.target.elements.number.value;
 
     for (const contact of contacts) {
       if (name.toLowerCase() === contact.name.toLowerCase())
         return alert(`${name} is already in contacts.`);
     }
 
-    dispatch(fetchAddContact({ name, phone }));
+    dispatch(fetchAddContact({ name, number }));
     e.target.reset();
   };
 
@@ -36,7 +36,7 @@ const ContactForm = () => {
     <form onSubmit={handleAddContact}>
       <TextField {...fields.name} />
       <TextField
-        {...fields.phone}
+        {...fields.number}
         pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
       />
       <Button>

@@ -14,19 +14,11 @@ const RegisterForm = ({ onSubmit }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <TextField
-        value={name}
-        handleChange={() => handleChange}
-        {...fields.name}
-      />
-      <TextField
-        value={email}
-        handleChange={() => handleChange}
-        {...fields.email}
-      />
+      <TextField value={name} handleChange={handleChange} {...fields.name} />
+      <TextField value={email} handleChange={handleChange} {...fields.email} />
       <TextField
         value={password}
-        handleChange={() => handleChange}
+        handleChange={handleChange}
         {...fields.password}
       />
       <Button>Sign up</Button>

@@ -1,15 +1,19 @@
+import { useSelector } from 'react-redux';
+
 import { NavLink } from 'react-router-dom';
 
-import items from './nav-items';
+import { selectIsLogin } from 'redux/auth/slice';
 
 const Navigation = () => {
-  const elements = items.map(({ id, text, link }) => (
-    <li key={id}>
-      <NavLink to={link}>{text}</NavLink>
-    </li>
-  ));
+  const isLogin = useSelector(selectIsLogin);
 
-  return <ul>{elements}</ul>;
+  return (
+    <div>
+      {!isLogin && <NavLink to="register">Register</NavLink>} |{' '}
+      {!isLogin && <NavLink to="login">Log in</NavLink>} |{' '}
+      {isLogin && <NavLink to="contacts">Contacts</NavLink>}
+    </div>
+  );
 };
 
 export default Navigation;

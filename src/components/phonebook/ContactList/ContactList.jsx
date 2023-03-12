@@ -20,11 +20,11 @@ const ContactList = () => {
 
   const filteredContacts = useSelector(selectFilteredContacts);
 
-  const elements = filteredContacts.map(({ id, name, phone }) => (
+  const elements = filteredContacts.map(({ id, name, number }) => (
     <ContactItem
       key={id}
       name={name}
-      phone={phone}
+      number={number}
       handleDeleteContact={() => dispatch(fetchDeleteContact(id))}
     />
   ));

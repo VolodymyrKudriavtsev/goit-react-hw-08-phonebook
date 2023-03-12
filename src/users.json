@@ -1,5 +1,37 @@
-{
-  "name": "Markiz",
-  "email": "markiz@ukr.net",
-  "password": "1234567"
-}
+[
+  {
+    "name": "Markiz",
+    "email": "markiz@ukr.net",
+    "password": "1234567"
+  },
+
+  {
+    "name": "Markizik",
+    "email": "markizik@ukr.net",
+    "password": "1234567"
+  },
+
+  {
+    "name": "Markyz",
+    "email": "markyz@ukr.net",
+    "password": "1234567"
+  },
+
+  {
+    "name": "Markyzik",
+    "email": "markyzik@ukr.net",
+    "password": "1234567"
+  },
+
+  {
+    "name": "Markuzia",
+    "email": "markuzia@ukr.net",
+    "password": "1234567"
+  },
+
+  {
+    "name": "Kuzia",
+    "email": "kuzia@ukr.net",
+    "password": "1234567"
+  }
+]

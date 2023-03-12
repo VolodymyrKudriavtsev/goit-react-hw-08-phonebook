@@ -9,10 +9,10 @@ const fields = {
     required: true,
     placeholder: 'Contact name',
   },
-  phone: {
+  number: {
     label: 'Number',
     type: 'text',
-    name: 'phone',
+    name: 'number',
     // pattern: '+?d{1,4}?[-.s]?(?d{1,3}?)?[-.s]?d{1,4}[-.s]?d{1,4}[-.s]?d{1,9}',
 
     title:

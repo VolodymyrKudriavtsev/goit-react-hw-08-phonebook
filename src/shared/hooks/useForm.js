@@ -6,6 +6,10 @@ const useForm = ({ initialState, onSubmit }) => {
   const handleChange = ({ target }) => {
     setState(prevState => {
       const { name, value } = target;
+      // const { name, value, checked, type } = target;
+      // const newValue = type === "checkbox" ? checked : value;
+      // return { ...prevState, [name]: newValue };
+
       return { ...prevState, [name]: value };
     });
   };
@@ -13,7 +17,7 @@ const useForm = ({ initialState, onSubmit }) => {
   const handleSubmit = e => {
     e.preventDefault();
     onSubmit({ ...state });
-    setState({ initialState });
+    setState({ ...initialState });
   };
 
   return { state, setState, handleChange, handleSubmit };

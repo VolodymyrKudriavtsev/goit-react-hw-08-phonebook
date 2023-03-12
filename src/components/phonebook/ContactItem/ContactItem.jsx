@@ -10,13 +10,13 @@ import { selectIsLoading } from 'redux/contacts/slice';
 
 // import { Contact } from './ContactItem.styled';
 
-const ContactItem = ({ name, phone, handleDeleteContact }) => {
+const ContactItem = ({ name, number, handleDeleteContact }) => {
   const isLoading = useSelector(selectIsLoading);
 
   return (
     <li>
       <p>
-        {name}: {phone}
+        {name}: {number}
       </p>
       <Button onClick={handleDeleteContact} type="button">
         {isLoading && <SpinnerIcon width="20" height="20" />}
@@ -30,7 +30,7 @@ const ContactItem = ({ name, phone, handleDeleteContact }) => {
 
 ContactItem.propTypes = {
   name: PropTypes.string.isRequired,
-  phone: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
   handleDeleteContact: PropTypes.func.isRequired,
 };
 

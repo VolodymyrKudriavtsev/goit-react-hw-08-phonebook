@@ -5,6 +5,7 @@ const fields = {
     name: 'email',
     required: true,
     placeholder: 'Email',
+    autoComplete: 'on',
   },
   password: {
     label: 'User password',
@@ -12,7 +13,7 @@ const fields = {
     name: 'password',
     required: true,
     placeholder: 'Password',
-    autoComplete: 'off',
+    autoComplete: 'on',
   },
 };
 
