@@ -40,32 +40,12 @@ const ContactForm = () => {
         pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
       />
       <Button>
-        {isLoading && <SpinnerIcon width="20" height="20" />}
-        <PlusIcon width="20" height="20" />
-        Add contact
+        {isLoading ? (
+          <SpinnerIcon width="20" height="20" />
+        ) : (
+          <PlusIcon width="20" height="20" />
+        )}
       </Button>
-      {/* <br />
-      <label>
-        Name
-        <input
-          type="text"
-          name="name"
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-          required
-        />
-      </label>
-      <label>
-        Number
-        <input
-          type="tel"
-          name="phone"
-          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-          required
-        />
-      </label>
-      <button type="submit">Add contact</button> */}
     </form>
   );
 };

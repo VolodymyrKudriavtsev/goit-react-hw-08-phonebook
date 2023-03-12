@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import Navigation from '../Navigation';
@@ -10,8 +11,10 @@ const Appbar = () => {
 
   return (
     <header>
+      <NavLink to="/">LOGO</NavLink>
       <Navigation />
       {isLogin && <UserMenu />}
+      <hr />
     </header>
   );
 };

@@ -9,8 +9,10 @@ const Navigation = () => {
 
   return (
     <div>
-      {!isLogin && <NavLink to="register">Register</NavLink>} |{' '}
-      {!isLogin && <NavLink to="login">Log in</NavLink>} |{' '}
+      {!isLogin && <NavLink to="register">Register</NavLink>}
+      {'   '}
+      {!isLogin && <NavLink to="login">Log in</NavLink>}
+      {'    '}
       {isLogin && <NavLink to="contacts">Contacts</NavLink>}
     </div>
   );

@@ -19,10 +19,11 @@ const ContactItem = ({ name, number, handleDeleteContact }) => {
         {name}: {number}
       </p>
       <Button onClick={handleDeleteContact} type="button">
-        {isLoading && <SpinnerIcon width="20" height="20" />}
-        <BucketIcon width="20" height="20" />
-        <CrossIcon width="20" height="20" />
-        Delete
+        {isLoading ? (
+          <SpinnerIcon width="20" height="20" />
+        ) : (
+          <BucketIcon width="20" height="20" />
+        )}
       </Button>
     </li>
   );
