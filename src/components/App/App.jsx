@@ -21,8 +21,9 @@ const App = () => {
 
   return (
     <>
-      <Appbar />
+      
       <Suspense fallback={<div>Loading...</div>}>
+        <Appbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/register" element={<RegisterPage />} />
