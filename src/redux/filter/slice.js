@@ -12,4 +12,4 @@ export const { setFilter } = filterSlice.actions;
 export default filterSlice.reducer;
 
 //Selectors
-export const selectFilter = ({ filter }) => filter;
+// export const selectFilter = ({ filter }) => filter;

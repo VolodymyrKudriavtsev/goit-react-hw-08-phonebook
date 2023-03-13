@@ -1,15 +1,13 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import TextField from 'shared/components/TextField';
 
 import fields from './fields';
-import { selectFilter, setFilter } from 'redux/filter/slice';
+import { setFilter } from 'redux/filter/slice';
 
 // import { Filtration } from './Filter.styled';
 
 const Filter = () => {
-  const filter = useSelector(selectFilter);
-
   const dispatch = useDispatch();
 
   const handleFilter = e => {

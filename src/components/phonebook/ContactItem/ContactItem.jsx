@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 import Button from 'shared/components/Button';
 import { ReactComponent as BucketIcon } from '../../../icons/bucket.svg';
-import { ReactComponent as CrossIcon } from '../../../icons/cross.svg';
 import { ReactComponent as SpinnerIcon } from '../../../icons/spinner.svg';
 
 import { selectIsLoading } from 'redux/contacts/slice';

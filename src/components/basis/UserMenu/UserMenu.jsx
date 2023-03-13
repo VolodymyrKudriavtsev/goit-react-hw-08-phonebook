@@ -18,8 +18,8 @@ const UserMenu = () => {
   return (
     <div>
       <Avatar />
-      <p>name</p>
-      <p>email</p>
+      <p>{name}</p>
+      <p>{email}</p>
       <Button onClick={onLogout} type="button">
         Log out
       </Button>
