@@ -4,16 +4,16 @@ import { useSelector } from 'react-redux';
 import Navigation from '../Navigation';
 import UserMenu from '../UserMenu';
 
-import { selectIsLogin } from 'redux/auth/slice';
+import { selectUserIsLogin } from 'redux/auth/slice';
 
 const Appbar = () => {
-  const isLogin = useSelector(selectIsLogin);
+  const userIsLogin = useSelector(selectUserIsLogin);
 
   return (
     <header>
       <NavLink to="/">LOGO</NavLink>
       <Navigation />
-      {isLogin && <UserMenu />}
+      {userIsLogin && <UserMenu />}
       <hr />
     </header>
   );

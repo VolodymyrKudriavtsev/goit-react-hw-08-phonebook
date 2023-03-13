@@ -54,8 +54,7 @@ const authSlice = createSlice({
       })
       .addCase(fetchCurrent.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        state.user = payload.user;
-        // state.token = payload.token;
+        state.user = payload;
         state.isLogin = true;
       })
       .addCase(fetchCurrent.rejected, (state, { payload }) => {
@@ -82,8 +81,10 @@ const authSlice = createSlice({
 export default authSlice.reducer;
 
 // SELECTORS
-export const selectIsLogin = ({ auth }) => auth.isLogin;
+export const selectUserIsLogin = ({ auth }) => auth.isLogin;
 
 export const selectUserInfo = ({ auth }) => auth.user;
+
+export const selectUserIsLoading = ({ auth }) => auth.isLoading;
 
 // export const selectToken = ({ auth }) => auth.token;
