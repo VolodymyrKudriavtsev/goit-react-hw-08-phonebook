@@ -81,10 +81,10 @@ const authSlice = createSlice({
 export default authSlice.reducer;
 
 // SELECTORS
-export const selectUserIsLogin = ({ auth }) => auth.isLogin;
+export const selecIstUserLogin = ({ auth }) => auth.isLogin;
 
 export const selectUserInfo = ({ auth }) => auth.user;
 
-export const selectUserIsLoading = ({ auth }) => auth.isLoading;
+// export const selectIsUserLoading = ({ auth }) => auth.isLoading;
 
 // export const selectToken = ({ auth }) => auth.token;

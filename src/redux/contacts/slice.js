@@ -57,7 +57,7 @@ const contactsSlice = createSlice({
 export default contactsSlice.reducer;
 
 //Selectors
-export const selectContacts = ({ contacts }) => contacts.items;
+export const selectAllContacts = ({ contacts }) => contacts.items;
 
 export const selectFilteredContacts = ({ contacts, filter }) => {
   return contacts.items.filter(({ name }) =>
@@ -65,4 +65,4 @@ export const selectFilteredContacts = ({ contacts, filter }) => {
   );
 };
 
-export const selectIsLoading = ({ contacts }) => contacts.isLoading;
+export const selectIsContactsLoading = ({ contacts }) => contacts.isLoading;

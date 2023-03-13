@@ -4,10 +4,10 @@ import { useSelector } from 'react-redux';
 import Navigation from '../Navigation';
 import UserMenu from '../UserMenu';
 
-import { selectUserIsLogin } from 'redux/auth/slice';
+import { selecIstUserLogin } from 'redux/auth/slice';
 
 const Appbar = () => {
-  const userIsLogin = useSelector(selectUserIsLogin);
+  const userIsLogin = useSelector(selecIstUserLogin);
 
   return (
     <header>

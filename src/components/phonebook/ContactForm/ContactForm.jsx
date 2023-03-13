@@ -8,13 +8,16 @@ import { ReactComponent as SpinnerIcon } from '../../../icons/spinner.svg';
 //! import useForm from 'shared/hooks/useForm';
 import fields from './fields';
 import { fetchAddContact } from 'redux/contacts/operations';
-import { selectContacts, selectIsLoading } from 'redux/contacts/slice';
+import {
+  selectAllContacts,
+  selectIsContactsLoading,
+} from 'redux/contacts/slice';
 
 // import { Form } from './ContactForm.styled';
 
 const ContactForm = () => {
-  const contacts = useSelector(selectContacts);
-  const isLoading = useSelector(selectIsLoading);
+  const contacts = useSelector(selectAllContacts);
+  const isContactsLoading = useSelector(selectIsContactsLoading);
 
   const dispatch = useDispatch();
 
@@ -40,7 +43,7 @@ const ContactForm = () => {
         pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
       />
       <Button>
-        {isLoading ? (
+        {isContactsLoading ? (
           <SpinnerIcon width="20" height="20" />
         ) : (
           <PlusIcon width="20" height="20" />

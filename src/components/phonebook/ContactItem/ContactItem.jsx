@@ -5,12 +5,12 @@ import Button from 'shared/components/Button';
 import { ReactComponent as BucketIcon } from '../../../icons/bucket.svg';
 import { ReactComponent as SpinnerIcon } from '../../../icons/spinner.svg';
 
-import { selectIsLoading } from 'redux/contacts/slice';
+import { selectIsContactsLoading } from 'redux/contacts/slice';
 
 // import { Contact } from './ContactItem.styled';
 
 const ContactItem = ({ name, number, handleDeleteContact }) => {
-  const isLoading = useSelector(selectIsLoading);
+  const isContactsLoading = useSelector(selectIsContactsLoading);
 
   return (
     <li>
@@ -18,7 +18,7 @@ const ContactItem = ({ name, number, handleDeleteContact }) => {
         {name}: {number}
       </p>
       <Button onClick={handleDeleteContact} type="button">
-        {isLoading ? (
+        {isContactsLoading ? (
           <SpinnerIcon width="20" height="20" />
         ) : (
           <BucketIcon width="20" height="20" />
