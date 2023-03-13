@@ -7,7 +7,7 @@ import { fetchLogout } from 'redux/auth/operations';
 import { selectUserInfo } from 'redux/auth/slice';
 
 const UserMenu = () => {
-  // const { name, email } = useSelector(selectUserInfo);
+  const { name, email } = useSelector(selectUserInfo);
 
   const dispatch = useDispatch();
 
