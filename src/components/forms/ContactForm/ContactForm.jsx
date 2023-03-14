@@ -1,49 +1,57 @@
-import { useSelector, useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 import TextField from 'shared/components/TextField';
 import Button from 'shared/components/Button';
 import { ReactComponent as PlusIcon } from '../../../icons/plus.svg';
 import { ReactComponent as SpinnerIcon } from '../../../icons/spinner.svg';
 
-//! import useForm from 'shared/hooks/useForm';
+import initialState from './initialState';
 import fields from './fields';
-import { fetchAddContact } from 'redux/contacts/operations';
-import {
-  selectAllContacts,
-  selectIsContactsLoading,
-} from 'redux/contacts/slice';
+import { selectAllContacts, selectOperation } from 'redux/contacts/slice';
 
 // import { Form } from './ContactForm.styled';
 
-const ContactForm = () => {
+const ContactForm = ({ onSubmit }) => {
   const contacts = useSelector(selectAllContacts);
-  const isContactsLoading = useSelector(selectIsContactsLoading);
+  const { operation } = useSelector(selectOperation);
 
-  const dispatch = useDispatch();
+  const [state, setState] = useState({ ...initialState });
 
-  const handleAddContact = e => {
+  const handleChange = ({ target }) => {
+    setState(prevState => {
+      const { name, value } = target;
+      return { ...prevState, [name]: value };
+    });
+  };
+
+  const handleSubmit = e => {
     e.preventDefault();
     const name = e.target.elements.name.value;
-    const number = e.target.elements.number.value;
 
     for (const contact of contacts) {
       if (name.toLowerCase() === contact.name.toLowerCase())
         return alert(`${name} is already in contacts.`);
     }
 
-    dispatch(fetchAddContact({ name, number }));
-    e.target.reset();
+    onSubmit({ ...state });
+    setState({ ...initialState });
   };
 
+  const { name, number } = state;
+
   return (
-    <form onSubmit={handleAddContact}>
-      <TextField {...fields.name} />
+    <form onSubmit={handleSubmit}>
+      <TextField value={name} handleChange={handleChange} {...fields.name} />
       <TextField
+        value={number}
+        handleChange={handleChange}
         {...fields.number}
         pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
       />
       <Button>
-        {isContactsLoading ? (
+        {operation === 'add' ? (
           <SpinnerIcon width="20" height="20" />
         ) : (
           <PlusIcon width="20" height="20" />
@@ -51,6 +59,10 @@ const ContactForm = () => {
       </Button>
     </form>
   );
+};
+
+ContactForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
 };
 
 export default ContactForm;

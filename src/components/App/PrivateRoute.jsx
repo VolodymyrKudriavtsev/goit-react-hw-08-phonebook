@@ -1,27 +1,20 @@
 import { Navigate, Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-// import { Suspense } from 'react';
 
-import { selectAuth} from 'redux/auth/slice';
+import { selectAuth } from 'redux/auth/slice';
 
 const PrivateRoute = () => {
-  const {isLogin, token} = useSelector(selectAuth);
+  const { isLoggedIn, token } = useSelector(selectAuth);
 
-  if (!isLogin && token) {
-    return <div>Loading...</div>
+  if (!isLoggedIn && token) {
+    return <div>Loading...</div>;
   }
 
-  if (!isLogin && !token) {
+  if (!isLoggedIn && !token) {
     return <Navigate to="/login" />;
   }
 
-  return (
-    <>
-      {/* <Suspense fallback={<div>Loading...</div>}> */}
-        <Outlet />
-      {/* </Suspense> */}
-    </>
-  );
+  return <Outlet />;
 };
 
 export default PrivateRoute;

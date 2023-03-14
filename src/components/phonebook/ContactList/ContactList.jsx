@@ -7,29 +7,35 @@ import {
   fetchAllContacts,
   fetchDeleteContact,
 } from 'redux/contacts/operations';
-import { selectFilteredContacts } from 'redux/contacts/slice';
+import { selectFilteredContacts, selectOperation } from 'redux/contacts/slice';
 
 // import { Contacts } from './ContactList.styled';
 
 const ContactList = () => {
   const dispatch = useDispatch();
+  const filteredContacts = useSelector(selectFilteredContacts);
+  const { operation, error } = useSelector(selectOperation);
 
   useEffect(() => {
     dispatch(fetchAllContacts());
   }, [dispatch]);
 
-  const filteredContacts = useSelector(selectFilteredContacts);
-
   const elements = filteredContacts.map(({ id, name, number }) => (
-    <ContactItem
-      key={id}
-      name={name}
-      number={number}
-      handleDeleteContact={() => dispatch(fetchDeleteContact(id))}
-    />
+    <li key={id}>
+      <ContactItem
+        id={id}
+        name={name}
+        number={number}
+        handleDeleteContact={() => dispatch(fetchDeleteContact(id))}
+      />
+    </li>
   ));
 
   const isContacts = Boolean(filteredContacts.length);
+
+  if (operation === 'fetch' && !error) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <>

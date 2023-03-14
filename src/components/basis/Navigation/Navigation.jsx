@@ -3,12 +3,12 @@ import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
 import items from './items';
-import { selecIstUserLogin } from 'redux/auth/slice';
+import { selectAuth } from 'redux/auth/slice';
 
 const Navigation = () => {
-  const userIsLogin = useSelector(selecIstUserLogin);
-  
-  const filteredItems = !userIsLogin
+  const { isLoggedIn } = useSelector(selectAuth);
+
+  const filteredItems = !isLoggedIn
     ? items.filter(item => !item.private)
     : items.filter(item => item.private);
 

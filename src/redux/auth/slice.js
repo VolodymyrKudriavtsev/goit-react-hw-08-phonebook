@@ -10,7 +10,7 @@ import {
 const initialState = {
   user: {},
   token: '',
-  isLogin: false,
+  isLoggedIn: false,
   isLoading: false,
   error: null,
 };
@@ -28,7 +28,7 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.user = payload.user;
         state.token = payload.token;
-        state.isLogin = true;
+        state.isLoggedIn = true;
       })
       .addCase(fetchSignup.rejected, (state, { payload }) => {
         state.isLoading = false;
@@ -42,7 +42,7 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.user = payload.user;
         state.token = payload.token;
-        state.isLogin = true;
+        state.isLoggedIn = true;
       })
       .addCase(fetchLogin.rejected, (state, { payload }) => {
         state.isLoading = false;
@@ -55,7 +55,7 @@ const authSlice = createSlice({
       .addCase(fetchCurrent.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.user = payload;
-        state.isLogin = true;
+        state.isLoggedIn = true;
       })
       .addCase(fetchCurrent.rejected, (state, { payload }) => {
         state.isLoading = false;
@@ -70,7 +70,7 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.user = {};
         state.token = '';
-        state.isLogin = false;
+        state.isLoggedIn = false;
       })
       .addCase(fetchLogout.rejected, (state, { payload }) => {
         state.isLoading = false;
@@ -82,13 +82,9 @@ const authSlice = createSlice({
 export default authSlice.reducer;
 
 // SELECTORS
-export const selecIstUserLogin = ({ auth }) => auth.isLogin;
-
 export const selectUserInfo = ({ auth }) => auth.user;
 
-// export const selectIsUserLoading = ({ auth }) => auth.isLoading;
-
 export const selectAuth = ({ auth }) => {
-  const { isLogin, token } = auth;
-  return { isLogin, token };
+  const { isLoggedIn, token } = auth;
+  return { isLoggedIn, token };
 };
