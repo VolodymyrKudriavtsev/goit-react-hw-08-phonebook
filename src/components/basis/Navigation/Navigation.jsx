@@ -1,19 +1,24 @@
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import { NavLink } from 'react-router-dom';
 
-// import { selecIstUserLogin } from 'redux/auth/slice';
+import items from './items';
+import { selecIstUserLogin } from 'redux/auth/slice';
 
 const Navigation = () => {
-  // const userIsLogin = useSelector(selecIstUserLogin);
+  const userIsLogin = useSelector(selecIstUserLogin);
+  
+  const filteredItems = !userIsLogin
+    ? items.filter(item => !item.private)
+    : items.filter(item => item.private);
 
-  return (
-    <div>
-      <NavLink to="register">Register</NavLink>{' '}
-      <NavLink to="login">Log in</NavLink>{' '}
-      <NavLink to="contacts">Contacts</NavLink>
-    </div>
-  );
+  const elements = filteredItems.map(({ id, text, link }) => (
+    <li key={id}>
+      <NavLink to={link}>{text}</NavLink>
+    </li>
+  ));
+
+  return <ul>{elements}</ul>;
 };
 
 export default Navigation;

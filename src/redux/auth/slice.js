@@ -59,6 +59,7 @@ const authSlice = createSlice({
       })
       .addCase(fetchCurrent.rejected, (state, { payload }) => {
         state.isLoading = false;
+        state.token = '';
         state.error = payload;
       })
       .addCase(fetchLogout.pending, state => {
@@ -87,4 +88,7 @@ export const selectUserInfo = ({ auth }) => auth.user;
 
 // export const selectIsUserLoading = ({ auth }) => auth.isLoading;
 
-// export const selectToken = ({ auth }) => auth.token;
+export const selectAuth = ({ auth }) => {
+  const { isLogin, token } = auth;
+  return { isLogin, token };
+};
