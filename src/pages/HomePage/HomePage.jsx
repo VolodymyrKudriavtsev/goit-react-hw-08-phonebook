@@ -1,16 +1,7 @@
-import { Link } from 'react-router-dom';
+import WellcomeText from './WellcomeText';
 
 const HomePage = () => {
-  return (
-    <>
-      <div>
-        <b>
-          To use the phone book, please <Link to="/register">register</Link> or{' '}
-          <Link to="/login">log in</Link> | змінити на компонент "WelcomeText"
-        </b>
-      </div>
-    </>
-  );
+  return <WellcomeText />;
 };
 
 export default HomePage;

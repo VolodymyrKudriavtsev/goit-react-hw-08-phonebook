@@ -14,7 +14,11 @@ const PublicRoute = () => {
     return <Navigate to="/contacts" />;
   }
 
-  return <Outlet />;
+  return (
+    <>
+      <Outlet />
+    </>
+  );
 };
 
 export default PublicRoute;

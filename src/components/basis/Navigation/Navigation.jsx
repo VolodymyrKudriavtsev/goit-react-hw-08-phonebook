@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
-
-import { NavLink } from 'react-router-dom';
+import { Link as ReachLink } from 'react-router-dom';
+import { Button } from '@chakra-ui/react';
 
 import items from './items';
 import { selectAuth } from 'redux/auth/slice';
@@ -13,12 +13,12 @@ const Navigation = () => {
     : items.filter(item => item.private);
 
   const elements = filteredItems.map(({ id, text, link }) => (
-    <li key={id}>
-      <NavLink to={link}>{text}</NavLink>
-    </li>
+    <Button as={ReachLink} key={id} to={link}>
+      {text}
+    </Button>
   ));
 
-  return <ul>{elements}</ul>;
+  return [elements];
 };
 
 export default Navigation;

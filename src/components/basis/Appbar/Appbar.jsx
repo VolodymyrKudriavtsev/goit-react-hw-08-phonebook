@@ -1,5 +1,8 @@
-import { NavLink } from 'react-router-dom';
+import { Link as ReachLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { Button, ButtonGroup } from '@chakra-ui/react';
+import { Icon } from '@chakra-ui/react';
+import { VscHome } from 'react-icons/vsc';
 
 import Navigation from '../Navigation';
 import UserMenu from '../UserMenu';
@@ -11,10 +14,14 @@ const Appbar = () => {
 
   return (
     <header>
-      <NavLink to="/">LOGO</NavLink>
-      <Navigation />
+      <ButtonGroup colorScheme="yellow" size="lg">
+        <Button as={ReachLink} to="/">
+          <Icon as={VscHome} boxSize={8} />
+        </Button>
+        <Navigation />
+      </ButtonGroup>
+
       {isLoggedIn && <UserMenu />}
-      <hr />
     </header>
   );
 };
