@@ -1,7 +1,6 @@
-import { Link as ReachLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { Button, ButtonGroup } from '@chakra-ui/react';
-import { Icon } from '@chakra-ui/react';
+import { Button, ButtonGroup, Icon } from '@chakra-ui/react';
 import { VscHome } from 'react-icons/vsc';
 
 import Navigation from '../Navigation';
@@ -15,7 +14,7 @@ const Appbar = () => {
   return (
     <header>
       <ButtonGroup colorScheme="yellow" size="lg">
-        <Button as={ReachLink} to="/">
+        <Button as={Link} to="/">
           <Icon as={VscHome} boxSize={8} />
         </Button>
         <Navigation />
