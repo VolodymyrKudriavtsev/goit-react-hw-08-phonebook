@@ -12,10 +12,10 @@ const RegisterPage = () => {
   };
 
   return (
-    <>
+    <div style={{ position: 'relative', top: '78px', height: '100vh' }}>
       <h1>Register Page</h1>
       <RegisterForm onSubmit={handleSignup} />
-    </>
+    </div>
   );
 };
 

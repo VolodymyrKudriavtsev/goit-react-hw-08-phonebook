@@ -14,13 +14,13 @@ const ContactsPage = () => {
   };
 
   return (
-    <>
+    <div style={{ position: 'relative', top: '78px', height: '100vh' }}>
       <h1>Phonebook</h1>
       <ContactForm onSubmit={handleAddContact} />
       <h2>Contacts</h2>
       <Filter />
       <ContactList />
-    </>
+    </div>
   );
 };
 

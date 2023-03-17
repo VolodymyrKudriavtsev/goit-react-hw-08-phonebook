@@ -12,10 +12,10 @@ const LoginPage = () => {
   };
 
   return (
-    <>
+    <div style={{ position: 'relative', top: '78px', height: '100vh' }}>
       <h1>Login Page</h1>
       <LoginForm onSubmit={handleLogin} />
-    </>
+    </div>
   );
 };
 

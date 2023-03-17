@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
+import { Box, Flex } from '@chakra-ui/react';
 
 import Button from 'shared/components/Button';
 import { ReactComponent as Avatar } from '../../../icons/user.svg';
@@ -16,14 +17,16 @@ const UserMenu = () => {
   };
 
   return (
-    <div>
+    <Flex>
       <Avatar />
-      <p>{name}</p>
-      <p>{email}</p>
+      <Box>
+        <p>{name}</p>
+        <p>{email}</p>
+      </Box>
       <Button onClick={onLogout} type="button">
         Log out
       </Button>
-    </div>
+    </Flex>
   );
 };
 
