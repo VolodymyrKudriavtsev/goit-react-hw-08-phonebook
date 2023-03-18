@@ -1,13 +1,12 @@
 import { useDispatch } from 'react-redux';
-import { Box } from '@chakra-ui/react';
+import { Box, Flex, Text } from '@chakra-ui/react';
 
 import ContactForm from 'components/forms/ContactForm';
-import Filter from 'components/phonebook/Filter';
 import ContactList from 'components/phonebook/ContactList';
 
 import { fetchAddContact } from 'redux/contacts/operations';
 
-import { styles } from './styles';
+import { styles } from './contacts-page.styled';
 
 const ContactsPage = () => {
   const dispatch = useDispatch();
@@ -18,11 +17,13 @@ const ContactsPage = () => {
 
   return (
     <Box {...styles.page}>
-      <h1>Phonebook</h1>
-      <ContactForm onSubmit={handleAddContact} />
-      <h2>Contacts</h2>
-      <Filter />
-      <ContactList />
+      <Box {...styles.wrapper}>
+        <Text {...styles.title}>Phonebook</Text>
+        <Flex {...styles.flex}>
+          <ContactForm onSubmit={handleAddContact} />
+          <ContactList />
+        </Flex>
+      </Box>
     </Box>
   );
 };

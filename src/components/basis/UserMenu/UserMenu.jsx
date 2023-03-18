@@ -1,8 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { Box, Flex } from '@chakra-ui/react';
+import { Box, Flex, Avatar, Text } from '@chakra-ui/react';
 
 import Button from 'shared/components/Button';
-import { ReactComponent as Avatar } from '../../../icons/user.svg';
 
 import { fetchLogout } from 'redux/auth/operations';
 import { selectUserInfo } from 'redux/auth/slice';
@@ -17,11 +16,11 @@ const UserMenu = () => {
   };
 
   return (
-    <Flex>
-      <Avatar />
+    <Flex gap="10px">
+      <Avatar name={name} />
       <Box>
-        <p>{name}</p>
-        <p>{email}</p>
+        <Text as="cite">{name}</Text>
+        <Text>{email}</Text>
       </Box>
       <Button onClick={onLogout} type="button">
         Log out

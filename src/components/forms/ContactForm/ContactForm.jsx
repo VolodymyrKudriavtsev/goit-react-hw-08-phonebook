@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { Text, chakra } from '@chakra-ui/react';
 
 import TextField from 'shared/components/TextField';
 import Button from 'shared/components/Button';
@@ -11,7 +12,7 @@ import initialState from './initialState';
 import fields from './fields';
 import { selectAllContacts, selectOperation } from 'redux/contacts/slice';
 
-// import { Form } from './ContactForm.styled';
+import { styles } from './contact-form.styled';
 
 const ContactForm = ({ onSubmit }) => {
   const contacts = useSelector(selectAllContacts);
@@ -42,7 +43,8 @@ const ContactForm = ({ onSubmit }) => {
   const { name, number } = state;
 
   return (
-    <form onSubmit={handleSubmit}>
+    <chakra.form onSubmit={handleSubmit} {...styles.form}>
+      <Text {...styles.title}>Add new contact</Text>
       <TextField value={name} handleChange={handleChange} {...fields.name} />
       <TextField
         value={number}
@@ -57,7 +59,7 @@ const ContactForm = ({ onSubmit }) => {
           <PlusIcon width="20" height="20" />
         )}
       </Button>
-    </form>
+    </chakra.form>
   );
 };
 

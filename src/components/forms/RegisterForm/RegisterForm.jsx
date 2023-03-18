@@ -8,7 +8,7 @@ import useForm from 'shared/hooks/useForm';
 import initialState from './initialState';
 import fields from './fields';
 
-import { styles } from './styles';
+import { styles } from './register-form.styled';
 
 const RegisterForm = ({ onSubmit }) => {
   const { state, handleChange, handleSubmit } = useForm({

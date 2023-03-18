@@ -10,7 +10,7 @@ import fields from './fields';
 
 import { selectIsLoading } from 'redux/auth/slice';
 
-import { styles } from './styles';
+import { styles } from './login-form.styled';
 
 const LoginterForm = ({ onSubmit }) => {
   const { state, handleChange, handleSubmit } = useForm({

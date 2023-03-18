@@ -5,7 +5,7 @@ import LoginForm from 'components/forms/LoginForm';
 
 import { fetchLogin } from 'redux/auth/operations';
 
-import { styles } from './styles';
+import { styles } from './login-page.styled';
 
 const LoginPage = () => {
   const dispatch = useDispatch();

@@ -4,7 +4,7 @@ const fields = {
     type: 'email',
     name: 'email',
     required: true,
-    placeholder: 'Email',
+    placeholder: 'email',
     autoComplete: 'on',
   },
   password: {
@@ -12,7 +12,7 @@ const fields = {
     type: 'password',
     name: 'password',
     required: true,
-    placeholder: 'Password',
+    placeholder: 'password',
     autoComplete: 'on',
   },
 };

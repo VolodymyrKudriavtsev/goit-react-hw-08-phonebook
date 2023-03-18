@@ -8,7 +8,7 @@ import UserMenu from '../UserMenu';
 
 import { selectAuth } from 'redux/auth/slice';
 
-import { styles, bgc } from './styles';
+import { styles, bgc } from './appbar.styled';
 
 const Appbar = () => {
   const { isLoggedIn } = useSelector(selectAuth);

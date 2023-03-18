@@ -7,7 +7,7 @@ import {
   InputLeftElement,
 } from '@chakra-ui/react';
 
-import { icon, isRequired, styles } from './styles';
+import { icon, isRequired, styles } from './text-field.styled';
 
 const TextField = ({ label, handleChange, ...props }) => {
   return (

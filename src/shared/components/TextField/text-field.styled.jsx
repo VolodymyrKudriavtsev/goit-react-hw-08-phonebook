@@ -25,11 +25,10 @@ export const isRequired = props => {
 
 export const styles = {
   formControl: {
-    colorScheme: 'whiteAlpha',
     bg: 'gray.50',
     mb: '8px',
     p: '10px 10px 15px',
-    boxShadow: 'xl',
+    boxShadow: 'md',
     rounded: 'md',
   },
 

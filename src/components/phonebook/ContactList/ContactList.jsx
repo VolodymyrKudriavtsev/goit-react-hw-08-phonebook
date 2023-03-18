@@ -1,6 +1,8 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
+import { Box, List, Text } from '@chakra-ui/react';
 
+import Filter from '../Filter';
 import ContactItem from 'components/phonebook/ContactItem';
 
 import {
@@ -9,7 +11,7 @@ import {
 } from 'redux/contacts/operations';
 import { selectFilteredContacts, selectOperation } from 'redux/contacts/slice';
 
-// import { Contacts } from './ContactList.styled';
+import { styles } from './contact-list.styled';
 
 const ContactList = () => {
   const dispatch = useDispatch();
@@ -40,9 +42,11 @@ const ContactList = () => {
   return (
     <>
       {isContacts && (
-        <div>
-          <ul>{elements}</ul>
-        </div>
+        <Box {...styles.box}>
+          <Text {...styles.title}>Contact list</Text>
+          <Filter />
+          <List {...styles.list}>{elements}</List>
+        </Box>
       )}
     </>
   );

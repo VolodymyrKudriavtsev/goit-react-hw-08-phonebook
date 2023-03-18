@@ -6,10 +6,10 @@ export const styles = {
   },
 
   title: {
-    bg: 'blue.500',
+    bg: 'teal.500',
     mb: '8px',
-    p: '10px 10px 15px',
-    boxShadow: 'xl',
+    p: '10px ',
+    boxShadow: 'md',
     rounded: 'md',
     color: 'white',
     fontSize: '2xl',

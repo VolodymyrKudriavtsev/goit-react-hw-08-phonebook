@@ -1,6 +1,6 @@
 import { Link as ReactLink } from 'react-router-dom';
 import { Link, Text } from '@chakra-ui/react';
-import { styles } from './styles';
+import { styles } from './wellcom.styled';
 
 const WellcomeText = () => {
   return (

@@ -5,7 +5,7 @@ import RegisterForm from 'components/forms/RegisterForm';
 
 import { fetchSignup } from 'redux/auth/operations';
 
-import { styles } from './styles';
+import { styles } from './register-page.styled';
 
 const RegisterPage = () => {
   const dispatch = useDispatch();

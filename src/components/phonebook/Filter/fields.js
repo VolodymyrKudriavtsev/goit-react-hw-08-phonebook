@@ -3,7 +3,7 @@ const fields = {
     label: 'Find contacts by name',
     type: 'text',
     name: 'filter',
-    placeholder: 'Contact name',
+    placeholder: 'filter',
   },
 };
 

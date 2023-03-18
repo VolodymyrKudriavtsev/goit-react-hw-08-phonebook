@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types';
+import { chakra } from '@chakra-ui/react';
 
 const Button = ({ children, onClick, type = 'submit' }) => {
   return (
-    <button onClick={onClick} type={type}>
+    <chakra.button onClick={onClick} type={type} bg="red">
       {children}
-    </button>
+    </chakra.button>
   );
 };
 

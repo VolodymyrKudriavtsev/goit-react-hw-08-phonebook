@@ -1,17 +1,16 @@
 export const styles = {
   form: {
-    w: '450px',
-    m: '0 auto',
+    w: '380px',
     align: 'center',
   },
 
   title: {
-    bg: 'cyan.500',
+    bg: 'cyan.800',
     mb: '8px',
-    p: '10px 10px 15px',
-    boxShadow: 'xl',
+    p: '5px',
+    boxShadow: 'md',
     rounded: 'md',
     color: 'white',
-    fontSize: '2xl',
+    fontSize: 'lg',
   },
 };

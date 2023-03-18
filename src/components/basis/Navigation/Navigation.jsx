@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@chakra-ui/react';
 
 import items from './items';
-import { styles } from './styles';
+import { styles } from './navigation.styled';
 import { selectAuth } from 'redux/auth/slice';
 
 const Navigation = () => {
