@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@chakra-ui/react';
 
 import items from './items';
-import settings from './style-settings';
+import { styles } from './styles';
 import { selectAuth } from 'redux/auth/slice';
 
 const Navigation = () => {
@@ -21,7 +21,7 @@ const Navigation = () => {
         as={Link}
         key={id}
         to={link}
-        {...settings.button}
+        {...styles.button}
         isActive={Boolean(pathname === link)}
       >
         {text}

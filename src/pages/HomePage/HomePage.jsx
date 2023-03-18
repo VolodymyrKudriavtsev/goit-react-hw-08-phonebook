@@ -1,10 +1,14 @@
+import { Box } from '@chakra-ui/react';
+
 import WellcomeText from '../../shared/components/WellcomText';
+
+import { styles } from './styles';
 
 const HomePage = () => {
   return (
-    <div style={{ position: 'relative', top: '78px', height: '100vh' }}>
+    <Box {...styles.page}>
       <WellcomeText />
-    </div>
+    </Box>
   );
 };
 

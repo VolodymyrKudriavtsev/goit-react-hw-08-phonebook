@@ -1,8 +1,11 @@
 import { useDispatch } from 'react-redux';
+import { Box } from '@chakra-ui/react';
 
 import RegisterForm from 'components/forms/RegisterForm';
 
 import { fetchSignup } from 'redux/auth/operations';
+
+import { styles } from './styles';
 
 const RegisterPage = () => {
   const dispatch = useDispatch();
@@ -12,10 +15,9 @@ const RegisterPage = () => {
   };
 
   return (
-    <div style={{ position: 'relative', top: '78px', height: '100vh' }}>
-      <h1>Register Page</h1>
+    <Box {...styles.page}>
       <RegisterForm onSubmit={handleSignup} />
-    </div>
+    </Box>
   );
 };
 

@@ -16,7 +16,11 @@ const Filter = () => {
 
   return (
     <div>
-      <TextField handleChange={handleFilter} {...fields.filter} />
+      <TextField
+        handleChange={handleFilter}
+        {...fields.filter}
+        isRequired="default"
+      />
     </div>
   );
 };

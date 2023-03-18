@@ -1,20 +1,20 @@
 import { Link as ReactLink } from 'react-router-dom';
-import { Link } from '@chakra-ui/react';
-import settings from './style-settings';
+import { Link, Text } from '@chakra-ui/react';
+import { styles } from './styles';
 
 const WellcomeText = () => {
   return (
-    <>
+    <Text fontSize="5xl" align="center">
       Welcome to the Phone Book! To use this application, please{' '}
-      <Link as={ReactLink} to="/register" {...settings.link}>
+      <Link as={ReactLink} to="/register" {...styles.link}>
         register
       </Link>{' '}
       or{' '}
-      <Link as={ReactLink} to="/login" {...settings.link}>
+      <Link as={ReactLink} to="/login" {...styles.link}>
         log in
       </Link>
       .
-    </>
+    </Text>
   );
 };
 

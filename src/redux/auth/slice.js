@@ -84,6 +84,8 @@ export default authSlice.reducer;
 // SELECTORS
 export const selectUserInfo = ({ auth }) => auth.user;
 
+export const selectIsLoading = ({ auth }) => auth.isLoading;
+
 export const selectAuth = ({ auth }) => {
   const { isLoggedIn, token } = auth;
   return { isLoggedIn, token };

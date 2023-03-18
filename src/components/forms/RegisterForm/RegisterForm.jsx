@@ -1,10 +1,14 @@
 import PropTypes from 'prop-types';
+import { chakra, Text } from '@chakra-ui/react';
+
 import TextField from 'shared/components/TextField';
 import Button from 'shared/components/Button';
 
 import useForm from 'shared/hooks/useForm';
 import initialState from './initialState';
 import fields from './fields';
+
+import { styles } from './styles';
 
 const RegisterForm = ({ onSubmit }) => {
   const { state, handleChange, handleSubmit } = useForm({
@@ -14,7 +18,9 @@ const RegisterForm = ({ onSubmit }) => {
   const { name, email, password } = state;
 
   return (
-    <form onSubmit={handleSubmit}>
+    <chakra.form onSubmit={handleSubmit} {...styles.form}>
+      <Text {...styles.title}>Register Form</Text>
+
       <TextField value={name} handleChange={handleChange} {...fields.name} />
       <TextField value={email} handleChange={handleChange} {...fields.email} />
       <TextField
@@ -23,7 +29,7 @@ const RegisterForm = ({ onSubmit }) => {
         {...fields.password}
       />
       <Button>Sign up</Button>
-    </form>
+    </chakra.form>
   );
 };
 

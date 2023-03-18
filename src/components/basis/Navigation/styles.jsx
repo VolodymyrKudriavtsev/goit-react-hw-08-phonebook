@@ -1,4 +1,4 @@
-const settings = {
+export const styles = {
   button: {
     bg: 'yellow.400',
     boxShadow: 'base',
@@ -7,5 +7,3 @@ const settings = {
     textTransform: 'uppercase',
   },
 };
-
-export default settings;

@@ -8,7 +8,7 @@ import UserMenu from '../UserMenu';
 
 import { selectAuth } from 'redux/auth/slice';
 
-import settings from './style-settings';
+import { styles, bgc } from './styles';
 
 const Appbar = () => {
   const { isLoggedIn } = useSelector(selectAuth);
@@ -16,12 +16,12 @@ const Appbar = () => {
   const { pathname } = useLocation();
 
   return (
-    <Flex {...settings.header}>
+    <Flex {...styles.header} bg={bgc(pathname)}>
       <ButtonGroup size="lg">
         <Button
           as={NavLink}
           to="/"
-          {...settings.button}
+          {...styles.button}
           isActive={Boolean(pathname === '/')}
         >
           <Icon as={VscHome} boxSize={8} />
