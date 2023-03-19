@@ -17,6 +17,7 @@ const fields = {
     label: 'User password',
     type: 'password',
     name: 'password',
+    minLength: 7,
     // required: true,
     placeholder: 'password',
     autoComplete: 'off',

@@ -9,7 +9,7 @@ export const fetchSignup = createAsyncThunk(
       const result = await api.signup(data);
       return result;
     } catch ({ response }) {
-      return rejectWithValue(response); //? response.data.message
+      return rejectWithValue(response);
     }
   }
 );
@@ -21,7 +21,7 @@ export const fetchLogin = createAsyncThunk(
       const result = await api.login(data);
       return result;
     } catch ({ response }) {
-      return rejectWithValue(response); //? response.data.message
+      return rejectWithValue(response);
     }
   }
 );
@@ -54,7 +54,7 @@ export const fetchLogout = createAsyncThunk(
       const data = await api.logout();
       return data;
     } catch ({ response }) {
-      return rejectWithValue(response); //? response.data.message
+      return rejectWithValue(response);
     }
   }
 );

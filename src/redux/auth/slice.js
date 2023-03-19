@@ -90,3 +90,5 @@ export const selectAuth = ({ auth }) => {
   const { isLoggedIn, token } = auth;
   return { isLoggedIn, token };
 };
+
+// export const selectError = ({ auth }) => auth.error;
