@@ -1,3 +1,4 @@
+import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { chakra, Text } from '@chakra-ui/react';
 
@@ -7,6 +8,7 @@ import Button from 'shared/components/Button';
 import useForm from 'shared/hooks/useForm';
 import initialState from './initialState';
 import fields from './fields';
+import { selectIsLoading } from 'redux/auth/slice';
 
 import { styles } from './register-form.styled';
 
@@ -16,6 +18,8 @@ const RegisterForm = ({ onSubmit }) => {
     onSubmit,
   });
   const { name, email, password } = state;
+
+  const isLoading = useSelector(selectIsLoading);
 
   return (
     <chakra.form onSubmit={handleSubmit} {...styles.form}>
@@ -28,7 +32,9 @@ const RegisterForm = ({ onSubmit }) => {
         handleChange={handleChange}
         {...fields.password}
       />
-      <Button>Sign up</Button>
+      <Button colorScheme="teal" isLoading={Boolean(isLoading)}>
+        Sign up
+      </Button>
     </chakra.form>
   );
 };

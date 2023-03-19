@@ -1,12 +1,11 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Text, chakra } from '@chakra-ui/react';
+import { Text, chakra, useToast } from '@chakra-ui/react';
+import { AddIcon } from '@chakra-ui/icons';
 
 import TextField from 'shared/components/TextField';
 import Button from 'shared/components/Button';
-import { ReactComponent as PlusIcon } from '../../../icons/plus.svg';
-import { ReactComponent as SpinnerIcon } from '../../../icons/spinner.svg';
 
 import initialState from './initialState';
 import fields from './fields';
@@ -20,6 +19,8 @@ const ContactForm = ({ onSubmit }) => {
 
   const [state, setState] = useState({ ...initialState });
 
+  const toast = useToast();
+
   const handleChange = ({ target }) => {
     setState(prevState => {
       const { name, value } = target;
@@ -32,12 +33,26 @@ const ContactForm = ({ onSubmit }) => {
     const name = e.target.elements.name.value;
 
     for (const contact of contacts) {
-      if (name.toLowerCase() === contact.name.toLowerCase())
-        return alert(`${name} is already in contacts.`);
+      if (name.toLowerCase() === contact.name.toLowerCase()) {
+        return toast({
+          position: 'top-left',
+          description: `${name} is already in contacts.`,
+          status: 'warning',
+          duration: 3000,
+          isClosable: true,
+        });
+      }
     }
-
     onSubmit({ ...state });
     setState({ ...initialState });
+
+    return toast({
+      position: 'top-left',
+      description: 'New contact successfully added.',
+      status: 'success',
+      duration: 3000,
+      isClosable: true,
+    });
   };
 
   const { name, number } = state;
@@ -52,12 +67,8 @@ const ContactForm = ({ onSubmit }) => {
         {...fields.number}
         pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
       />
-      <Button>
-        {operation === 'add' ? (
-          <SpinnerIcon width="20" height="20" />
-        ) : (
-          <PlusIcon width="20" height="20" />
-        )}
+      <Button isLoading={Boolean(operation === 'add')} {...styles.button}>
+        <AddIcon boxSize={8} />
       </Button>
     </chakra.form>
   );

@@ -30,7 +30,9 @@ const LoginterForm = ({ onSubmit }) => {
         handleChange={handleChange}
         {...fields.password}
       />
-      <Button>{isLoading ? <div>Loading...</div> : <span>Log in</span>}</Button>
+      <Button colorScheme="telegram" isLoading={Boolean(isLoading)}>
+        Log in
+      </Button>
     </chakra.form>
   );
 };

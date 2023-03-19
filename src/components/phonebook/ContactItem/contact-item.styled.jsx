@@ -11,4 +11,10 @@ export const styles = {
     boxShadow: 'md',
     rounded: 'md',
   },
+
+  button: {
+    p: '0',
+    colorScheme: 'red',
+    size: 'sm',
+  },
 };

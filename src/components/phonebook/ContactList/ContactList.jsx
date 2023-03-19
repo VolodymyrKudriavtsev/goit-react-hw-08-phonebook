@@ -22,13 +22,17 @@ const ContactList = () => {
     dispatch(fetchAllContacts());
   }, [dispatch]);
 
+  const onDeleteContact = id => {
+    dispatch(fetchDeleteContact(id));
+  };
+
   const elements = filteredContacts.map(({ id, name, number }) => (
     <li key={id}>
       <ContactItem
         id={id}
         name={name}
         number={number}
-        handleDeleteContact={() => dispatch(fetchDeleteContact(id))}
+        handleDeleteContact={() => onDeleteContact(id)}
       />
     </li>
   ));

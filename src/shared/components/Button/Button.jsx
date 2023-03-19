@@ -1,23 +1,36 @@
 import PropTypes from 'prop-types';
-import { chakra } from '@chakra-ui/react';
+import { Button } from '@chakra-ui/react';
 
-const Button = ({ children, onClick, type = 'submit' }) => {
+const ActionButton = ({
+  children,
+  onClick,
+  type = 'submit',
+  isLoading = false,
+  ...props
+}) => {
   return (
-    <chakra.button onClick={onClick} type={type} bg="red">
+    <Button
+      onClick={onClick}
+      type={type}
+      isLoading={isLoading}
+      rounded="full"
+      boxShadow="md"
+      {...props}
+    >
       {children}
-    </chakra.button>
+    </Button>
   );
 };
 
-Button.defaultProps = {
+ActionButton.defaultProps = {
   onClick: () => null,
   children: null,
 };
 
-Button.propTypes = {
+ActionButton.propTypes = {
   children: PropTypes.node,
   onClick: PropTypes.func,
   type: PropTypes.string,
 };
 
-export default Button;
+export default ActionButton;

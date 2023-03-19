@@ -13,4 +13,10 @@ export const styles = {
     color: 'white',
     fontSize: 'lg',
   },
+
+  button: {
+    p: '0',
+    colorScheme: 'green',
+    size: 'lg',
+  },
 };

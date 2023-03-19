@@ -1,10 +1,9 @@
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Flex, Spacer, Text, Box, Avatar } from '@chakra-ui/react';
+import { DeleteIcon } from '@chakra-ui/icons';
 
 import Button from 'shared/components/Button';
-import { ReactComponent as BucketIcon } from '../../../icons/bucket.svg';
-import { ReactComponent as SpinnerIcon } from '../../../icons/spinner.svg';
 
 import { selectOperation } from 'redux/contacts/slice';
 
@@ -22,12 +21,13 @@ const ContactItem = ({ id, name, number, handleDeleteContact }) => {
       </Box>
 
       <Spacer />
-      <Button onClick={handleDeleteContact} type="button">
-        {operation === id ? (
-          <SpinnerIcon width="20" height="20" />
-        ) : (
-          <BucketIcon width="20" height="20" />
-        )}
+      <Button
+        onClick={handleDeleteContact}
+        type="button"
+        isLoading={Boolean(operation === id)}
+        {...styles.button}
+      >
+        <DeleteIcon />
       </Button>
     </Flex>
   );
