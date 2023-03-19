@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { Box, List, Text } from '@chakra-ui/react';
+import { Box, List, Text, useToast, Progress } from '@chakra-ui/react';
 
 import Filter from '../Filter';
 import ContactItem from 'components/phonebook/ContactItem';
@@ -17,6 +17,7 @@ const ContactList = () => {
   const dispatch = useDispatch();
   const filteredContacts = useSelector(selectFilteredContacts);
   const { operation, error } = useSelector(selectOperation);
+  const toast = useToast();
 
   useEffect(() => {
     dispatch(fetchAllContacts());
@@ -24,6 +25,14 @@ const ContactList = () => {
 
   const onDeleteContact = id => {
     dispatch(fetchDeleteContact(id));
+
+    return toast({
+      position: 'top-left',
+      description: 'Contact deleted successfully.',
+      status: 'success',
+      duration: 3000,
+      isClosable: true,
+    });
   };
 
   const elements = filteredContacts.map(({ id, name, number }) => (
@@ -32,7 +41,7 @@ const ContactList = () => {
         id={id}
         name={name}
         number={number}
-        handleDeleteContact={() => onDeleteContact(id)}
+        handleDeleteContact={onDeleteContact}
       />
     </li>
   ));
@@ -40,7 +49,7 @@ const ContactList = () => {
   const isContacts = Boolean(filteredContacts.length);
 
   if (operation === 'fetch' && !error) {
-    return <div>Loading...</div>;
+    return <Progress isIndeterminate />;
   }
 
   return (

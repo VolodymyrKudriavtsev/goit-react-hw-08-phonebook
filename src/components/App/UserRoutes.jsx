@@ -1,5 +1,6 @@
 import { Route, Routes, Navigate } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
+import { Progress } from '@chakra-ui/react';
 
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
@@ -11,7 +12,7 @@ const ContactsPage = lazy(() => import('pages/ContactsPage'));
 
 const UserRoutes = () => {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<Progress isIndeterminate />}>
       <Routes>
         <Route path="/" element={<HomePage />} />
 

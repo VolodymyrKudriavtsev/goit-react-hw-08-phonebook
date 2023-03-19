@@ -1,5 +1,6 @@
 import { Navigate, Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { Progress } from '@chakra-ui/react';
 
 import { selectAuth } from 'redux/auth/slice';
 
@@ -7,7 +8,7 @@ const PrivateRoute = () => {
   const { isLoggedIn, token } = useSelector(selectAuth);
 
   if (!isLoggedIn && token) {
-    return <div>Loading...</div>;
+    return <Progress isIndeterminate />;
   }
 
   if (!isLoggedIn && !token) {

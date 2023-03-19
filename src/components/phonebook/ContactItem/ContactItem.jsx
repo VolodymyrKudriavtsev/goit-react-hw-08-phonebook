@@ -22,7 +22,7 @@ const ContactItem = ({ id, name, number, handleDeleteContact }) => {
 
       <Spacer />
       <Button
-        onClick={handleDeleteContact}
+        onClick={() => handleDeleteContact(id)}
         type="button"
         isLoading={Boolean(operation === id)}
         {...styles.button}
