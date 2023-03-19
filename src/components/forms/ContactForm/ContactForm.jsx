@@ -35,7 +35,7 @@ const ContactForm = ({ onSubmit }) => {
     for (const contact of contacts) {
       if (name.toLowerCase() === contact.name.toLowerCase()) {
         return toast({
-          position: 'top-left',
+          position: 'top',
           description: `${name} is already in contacts.`,
           status: 'warning',
           duration: 3000,
@@ -47,7 +47,7 @@ const ContactForm = ({ onSubmit }) => {
     setState({ ...initialState });
 
     return toast({
-      position: 'top-left',
+      position: 'top',
       description: 'New contact successfully added.',
       status: 'success',
       duration: 3000,

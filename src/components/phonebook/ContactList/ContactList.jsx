@@ -27,7 +27,7 @@ const ContactList = () => {
     dispatch(fetchDeleteContact(id));
 
     return toast({
-      position: 'top-left',
+      position: 'top',
       description: 'Contact deleted successfully.',
       status: 'success',
       duration: 3000,
